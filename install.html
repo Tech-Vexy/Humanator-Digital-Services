@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Install Humanator Digital Services as a Progressive Web App for the best experience">
+    <meta name="keywords" content="install app, PWA, mobile app, Humanator Digital Services">
+    <title>Install Our App - Humanator Digital Services</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo/logo.png">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/professional-theme.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/navigations.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/performance.css">
+    <link rel="stylesheet" href="css/media.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2c5aa0">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Install Page Specific Styles -->
+    <style>
+        .install-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .install-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        .install-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .install-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .install-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        
+        .app-preview {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .device-mockup {
+            position: relative;
+            background: #1a1a1a;
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .device-mockup.mobile {
+            width: 250px;
+            height: 450px;
+            animation-delay: 0s;
+        }
+        
+        .device-mockup.desktop {
+            width: 400px;
+            height: 250px;
+            border-radius: 15px;
+            animation-delay: 2s;
+        }
+        
+        .device-screen {
+            width: 100%;
+            height: 100%;
+            background: url('images/banner/humanator_rollonbanner2.jpg') center/cover;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .device-screen::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(44, 90, 160, 0.1), rgba(44, 90, 160, 0.2));
+        }
+        
+        .install-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .install-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .install-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .install-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .install-card i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .install-card h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .install-card p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .install-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .install-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .install-btn.secondary {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .install-btn.secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            animation: fadeInUp 0.6s ease;
+        }
+        
+        .feature-item i {
+            font-size: 2rem;
+            color: #ffd700;
+            min-width: 50px;
+        }
+        
+        .feature-item div h4 {
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        .feature-item div p {
+            color: rgba(255,255,255,0.8);
+            margin: 0;
+        }
+        
+        .install-steps {
+            background: white;
+            padding: 3rem 0;
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .step-card {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+        
+        .step-card h4 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .step-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .compatibility-section {
+            background: #f8f9fa;
+            padding: 3rem 0;
+        }
+        
+        .compatibility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .compatibility-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .compatibility-item i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+        
+        .compatibility-item h4 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .compatibility-item p {
+            color: #666;
+            margin: 0;
+        }
+        
+        .install-cta {
+            background: linear-gradient(135deg, #2c5aa0 0%, #1e3d72 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .install-status {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .install-status.installed {
+            background: rgba(40, 167, 69, 0.2);
+            border: 1px solid rgba(40, 167, 69, 0.5);
+        }
+        
+        .install-status.available {
+            background: rgba(255, 193, 7, 0.2);
+            border: 1px solid rgba(255, 193, 7, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            .install-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .install-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .app-preview {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .device-mockup.desktop {
+                width: 300px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="navbar animate-slide-in-top">
+        <div class="logo animate-fade-in-left">
+            <img src="images/logo/logo.png" width="50" height="50" alt="Humanator Digital Services Logo" class="animate-float">
+            <span>Humanator Digital Services</span>
+        </div>
+        <nav>
+            <ul class="animate-fade-in-right">
+                <li>
+                    <a href="index.html" class="nav-item-enhanced">
+                        <i class="fas fa-home bounce-icon icon-morph"></i> 
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="services.html" class="nav-item-enhanced">
+                        <i class="fas fa-cogs pulse-icon icon-morph"></i> 
+                        <span>Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html" class="nav-item-enhanced">
+                        <i class="fas fa-info-circle rotate-icon icon-morph"></i> 
+                        <span>About</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html" class="nav-item-enhanced">
+                        <i class="fas fa-envelope shake-icon icon-morph"></i> 
+                        <span>Contact</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="install.html" aria-current="page" class="nav-item-enhanced">
+                        <i class="fas fa-download pulse-icon icon-morph"></i> 
+                        <span>Install App</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-nav-toggle menu-toggle" aria-label="Toggle mobile navigation" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="sidenav mobile-nav-enhanced">
+        <div class="navs">
+            <nav>
+                <ul class="staggered-list">
+                    <li><a href="index.html"><i class="fas fa-home icon-morph"></i> Home</a></li>
+                    <li><a href="services.html"><i class="fas fa-cogs icon-morph"></i> Services</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle icon-morph"></i> About</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope icon-morph"></i> Contact</a></li>
+                    <li><a href="install.html"><i class="fas fa-download icon-morph"></i> Install App</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <!-- Install Hero Section -->
+        <section class="install-hero">
+            <div class="container">
+                <div class="install-hero-content">
+                    <h1><i class="fas fa-mobile-alt"></i> Get Our App</h1>
+                    <p>Experience Humanator Digital Services with the convenience of a native app</p>
+                    
+                    <div class="install-status" id="installStatus">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Checking installation status...</span>
+                    </div>
+                    
+                    <div class="app-preview">
+                        <div class="device-mockup mobile">
+                            <div class="device-screen"></div>
+                        </div>
+                        <div class="device-mockup desktop">
+                            <div class="device-screen"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-bolt"></i>
+                            <div>
+                                <h4>Lightning Fast</h4>
+                                <p>Instant loading and smooth performance</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-wifi-slash"></i>
+                            <div>
+                                <h4>Works Offline</h4>
+                                <p>Access services even without internet</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-bell"></i>
+                            <div>
+                                <h4>Push Notifications</h4>
+                                <p>Stay updated with latest offers</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-home"></i>
+                            <div>
+                                <h4>Home Screen Access</h4>
+                                <p>Quick access from your device</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation Options -->
+        <section class="container" style="padding: 4rem 0;">
+            <div class="section-header">
+                <h2>Choose Your Installation Method</h2>
+                <p>Select the best option for your device and preferences</p>
+            </div>
+            
+            <div class="install-options">
+                <div class="install-card">
+                    <i class="fas fa-download"></i>
+                    <h3>Direct PWA Install</h3>
+                    <p>Install directly from your browser for the fastest and most integrated experience. Works on all modern devices.</p>
+                    <button class="install-btn" id="directInstallBtn">
+                        <i class="fas fa-download"></i>
+                        <span>Install Now</span>
+                    </button>
+                </div>
+                
+                <div class="install-card">
+                    <i class="fab fa-google-play"></i>
+                    <h3>Google Play Store</h3>
+                    <p>Download our Android app from the Google Play Store for enhanced mobile features and automatic updates.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.humanator.digitalservices" 
+                       class="install-btn" target="_blank" rel="noopener">
+                        <i class="fab fa-google-play"></i>
+                        <span>Get on Play Store</span>
+                    </a>
+                </div>
+                
+                <div class="install-card">
+                    <i class="fab fa-microsoft"></i>
+                    <h3>Microsoft Store</h3>
+                    <p>Install from Microsoft Store for Windows devices with full OS integration and enhanced security.</p>
+                    <a href="ms-windows-store://pdp/?productid=9NBLGGH5L9XT" class="install-btn">
+                        <i class="fab fa-microsoft"></i>
+                        <span>Get on Microsoft Store</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation Steps -->
+        <section class="install-steps">
+            <div class="container">
+                <div class="section-header">
+                    <h2>How to Install</h2>
+                    <p>Follow these simple steps to install our app on your device</p>
+                </div>
+                
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Visit Our Website</h4>
+                        <p>Open humanator-services.com in your browser (Chrome, Safari, Edge, or Firefox)</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Look for Install Prompt</h4>
+                        <p>Your browser will show an install banner or look for the install button in the address bar</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h4>Tap Install</h4>
+                        <p>Click "Install" or "Add to Home Screen" when prompted by your browser</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h4>Enjoy the App</h4>
+                        <p>The app will be added to your home screen and can be launched like any native app</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Device Compatibility -->
+        <section class="compatibility-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Device Compatibility</h2>
+                    <p>Our app works seamlessly across all major platforms and devices</p>
+                </div>
+                
+                <div class="compatibility-grid">
+                    <div class="compatibility-item">
+                        <i class="fab fa-android"></i>
+                        <h4>Android</h4>
+                        <p>Android 5.0+</p>
+                    </div>
+                    
+                    <div class="compatibility-item">
+                        <i class="fab fa-apple"></i>
+                        <h4>iOS/iPadOS</h4>
+                        <p>iOS 11.3+</p>
+                    </div>
+                    
+                    <div class="compatibility-item">
+                        <i class="fab fa-windows"></i>
+                        <h4>Windows</h4>
+                        <p>Windows 10+</p>
+                    </div>
+                    
+                    <div class="compatibility-item">
+                        <i class="fab fa-apple"></i>
+                        <h4>macOS</h4>
+                        <p>macOS 10.14+</p>
+                    </div>
+                    
+                    <div class="compatibility-item">
+                        <i class="fab fa-linux"></i>
+                        <h4>Linux</h4>
+                        <p>Modern distributions</p>
+                    </div>
+                    
+                    <div class="compatibility-item">
+                        <i class="fas fa-globe"></i>
+                        <h4>Web Browsers</h4>
+                        <p>Chrome, Safari, Edge, Firefox</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="install-cta">
+            <div class="container">
+                <h2>Ready to Get Started?</h2>
+                <p>Join thousands of satisfied customers who use our app daily</p>
+                
+                <div style="margin-top: 2rem;">
+                    <button class="install-btn" id="ctaInstallBtn" style="margin-right: 1rem;">
+                        <i class="fas fa-download"></i>
+                        <span>Install App Now</span>
+                    </button>
+                    <a href="contact.html" class="install-btn secondary">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Need Help?</span>
+                    </a>
+                </div>
+                
+                <!-- IARC Rating Display -->
+                <div style="margin-top: 2rem; opacity: 0.8;">
+                    <div class="iarc-rating show" style="position: static; display: inline-block;">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>IARC Rated: General Audiences</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Humanator Digital Services</h3>
+                    <p>Your trusted partner for digital solutions in Nairobi. We provide professional internet access, printing, scanning, and computer training services.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="install.html">Install App</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                    <p><i class="fas fa-phone"></i> +254 700 000 000</p>
+                    <p><i class="fas fa-envelope"></i> info@humanator-services.com</p>
+                </div>
+            </div>
+        </div>
+        
+        <hr id="l">
+        <p class="copyright">
+            <i class="fas fa-copyright"></i> 
+            Humanator Digital Services <span id="current-year"></span> - All Rights Reserved
+            <span class="footer-love">
+                Made with <i class="fas fa-heart animate-pulse"></i> in Nairobi
+            </span>
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script/page-transitions.js"></script>
+    <script src="script/pwa-enhancements.js"></script>
+    <script src="script/main.js"></script>
+    
+    <!-- Install Page Specific Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const installStatus = document.getElementById('installStatus');
+            const directInstallBtn = document.getElementById('directInstallBtn');
+            const ctaInstallBtn = document.getElementById('ctaInstallBtn');
+            
+            // Check installation status
+            function updateInstallStatus() {
+                if (window.matchMedia('(display-mode: standalone)').matches) {
+                    installStatus.className = 'install-status installed';
+                    installStatus.innerHTML = '<i class="fas fa-check-circle"></i> <span>App Already Installed!</span>';
+                    
+                    directInstallBtn.innerHTML = '<i class="fas fa-external-link-alt"></i> <span>Open App</span>';
+                    directInstallBtn.onclick = () => window.open('/', '_blank');
+                    
+                    ctaInstallBtn.innerHTML = '<i class="fas fa-external-link-alt"></i> <span>Open App</span>';
+                    ctaInstallBtn.onclick = () => window.open('/', '_blank');
+                } else if (window.pwaEnhancements && window.pwaEnhancements.deferredPrompt) {
+                    installStatus.className = 'install-status available';
+                    installStatus.innerHTML = '<i class="fas fa-download"></i> <span>Ready to Install</span>';
+                } else {
+                    installStatus.className = 'install-status';
+                    installStatus.innerHTML = '<i class="fas fa-info-circle"></i> <span>Install via Browser Menu</span>';
+                }
+            }
+            
+            // Setup install buttons
+            function setupInstallButtons() {
+                [directInstallBtn, ctaInstallBtn].forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        if (window.pwaEnhancements) {
+                            window.pwaEnhancements.installPWA();
+                        } else {
+                            // Fallback: show instructions
+                            showInstallInstructions();
+                        }
+                    });
+                });
+            }
+            
+            function showInstallInstructions() {
+                const modal = document.createElement('div');
+                modal.innerHTML = `
+                    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 10000;">
+                        <div style="background: white; padding: 2rem; border-radius: 15px; max-width: 500px; text-align: center;">
+                            <h3 style="margin-bottom: 1rem; color: #333;">Install Instructions</h3>
+                            <div style="text-align: left; margin: 1rem 0;">
+                                <p style="margin: 0.5rem 0;"><strong>On Mobile:</strong> Tap the share button <i class="fas fa-share"></i> and select "Add to Home Screen"</p>
+                                <p style="margin: 0.5rem 0;"><strong>On Desktop:</strong> Look for the install icon <i class="fas fa-download"></i> in your browser's address bar</p>
+                                <p style="margin: 0.5rem 0;"><strong>Chrome:</strong> Click the three dots menu → "Install Humanator Digital Services"</p>
+                            </div>
+                            <button onclick="this.closest('div').parentElement.remove()" 
+                                    style="background: #667eea; color: white; border: none; padding: 1rem 2rem; border-radius: 25px; cursor: pointer; margin-top: 1rem;">
+                                Got it!
+                            </button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            }
+            
+            // Initialize
+            updateInstallStatus();
+            setupInstallButtons();
+            
+            // Update status when PWA enhancements are loaded
+            setTimeout(updateInstallStatus, 1000);
+            
+            // Listen for install events
+            window.addEventListener('beforeinstallprompt', updateInstallStatus);
+            window.addEventListener('appinstalled', updateInstallStatus);
+            
+            // Set current year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
