@@ -1,0 +1,302 @@
+/* =============================================
+   PERFORMANCE & OPTIMIZATION ENHANCEMENTS
+   ============================================= */
+
+/* Critical CSS - Above the fold content */
+@media (max-width: 768px) {
+    /* Optimize mobile loading */
+    .hero-section,
+    .services-hero {
+        background-attachment: scroll; /* Improve iOS performance */
+    }
+    
+    /* Reduce animations on mobile */
+    .particle-bg,
+    .floating-element {
+        display: none;
+    }
+}
+
+/* Lazy loading support */
+.lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
+}
+
+/* Optimize font loading */
+@font-face {
+    font-family: 'Inter-Optimized';
+    src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    font-display: swap;
+}
+
+/* Skeleton loading placeholders */
+.skeleton {
+    animation: skeleton-loading 1.5s ease-in-out infinite alternate;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Critical rendering path optimization */
+.above-fold {
+    contain: layout style paint;
+    content-visibility: auto;
+}
+
+/* Improve scrolling performance */
+.smooth-scroll {
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+}
+
+/* GPU acceleration for animations */
+.hardware-accelerated {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Optimize images */
+.optimized-image {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimizeQuality;
+    image-rendering: crisp-edges;
+}
+
+/* Web font optimization */
+.font-display-swap {
+    font-display: swap;
+}
+
+/* Reduce layout shifts */
+.aspect-ratio-16-9 {
+    aspect-ratio: 16 / 9;
+}
+
+.aspect-ratio-4-3 {
+    aspect-ratio: 4 / 3;
+}
+
+.aspect-ratio-1-1 {
+    aspect-ratio: 1 / 1;
+}
+
+/* Container queries for better responsiveness */
+@container (min-width: 768px) {
+    .container-responsive {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+/* Performance budgets for animations */
+@media (update: slow) or (prefers-reduced-motion: reduce) {
+    .performance-heavy {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Memory optimization */
+.offscreen {
+    content-visibility: hidden;
+}
+
+/* Network optimization */
+.low-bandwidth {
+    background-image: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+@media (prefers-reduced-data: reduce) {
+    .data-intensive {
+        display: none;
+    }
+}
+
+/* Cache optimization hints */
+.cacheable-resource {
+    /* Cache-Control should be set via HTTP headers */
+    position: relative;
+}
+
+/* Service worker communication */
+.sw-update-available {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-medium);
+    z-index: 10000;
+    transform: translateY(100px);
+    transition: transform 0.3s ease;
+}
+
+.sw-update-available.show {
+    transform: translateY(0);
+}
+
+/* Error state styling */
+.error-boundary {
+    padding: 2rem;
+    text-align: center;
+    background: #fee;
+    border: 1px solid #fcc;
+    border-radius: 8px;
+    color: #c33;
+}
+
+.retry-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+/* Progressive enhancement classes */
+.js-enabled .no-js {
+    display: none;
+}
+
+.no-js .js-only {
+    display: none;
+}
+
+/* Feature detection support */
+.supports-grid {
+    display: grid;
+}
+
+.no-grid .supports-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Accessibility improvements */
+.focus-trap {
+    position: relative;
+}
+
+.focus-trap::before,
+.focus-trap::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* High contrast mode improvements */
+@media (prefers-contrast: high) {
+    .high-contrast-border {
+        border: 2px solid currentColor;
+    }
+    
+    .subtle-text {
+        color: inherit;
+    }
+}
+
+/* Print optimizations */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    .print-only {
+        display: block !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+    
+    .page-break {
+        page-break-before: always;
+    }
+}
+
+/* Security headers support */
+.content-security-policy {
+    /* Inline styles moved to external files for CSP compliance */
+    position: relative;
+}
+
+/* Mobile-specific optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .touch-optimized {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .hover-effects {
+        display: none;
+    }
+}
+
+/* Battery API optimizations */
+.battery-low .energy-intensive {
+    animation: none;
+    transition: none;
+    background-image: none;
+}
+
+/* Connection-aware features */
+.slow-connection .bandwidth-intensive {
+    display: none;
+}
+
+/* Intersection observer optimizations */
+.observer-target {
+    margin: 100px 0;
+}
+
+.lazy-load-trigger {
+    min-height: 1px;
+}
+
+/* Memory leak prevention */
+.cleanup-required {
+    /* Elements that need manual cleanup */
+    position: relative;
+}
+
+/* Performance monitoring */
+.performance-marker {
+    /* Used for performance timing */
+    position: relative;
+}
+
+/* Bundle splitting support */
+.critical-path {
+    /* Critical resources */
+    position: relative;
+}
+
+.non-critical {
+    /* Non-critical resources that can be lazy loaded */
+    position: relative;
+}

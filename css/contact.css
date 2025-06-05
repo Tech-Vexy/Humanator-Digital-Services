@@ -1,0 +1,105 @@
+#contact-details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 10px;
+    background: url(../images/services/il_1080xN.2424905621_k136.avif);
+    background-attachment: fixed;
+    background-position: center;
+    margin-top: 70px;
+    margin-bottom:20px;
+    background-size: cover;
+   
+   
+}
+#contact-details .details{
+    width: 40%;
+    color: green;
+   
+    
+}
+
+#contact-details .details span,
+#form-details form span{
+    font-size: 22px;
+}
+#contact-details .details h2{
+    font-size: 46px;
+    line-height: 35px;
+    padding: 20px 0;
+    color: green;
+}
+
+#contact-details .details h3{
+    font-size: 36px;
+   padding-bottom: 15px;
+   color: green;
+}
+
+#contact-details .details li{
+    list-style: none;
+    display: flex;
+    padding: 10px 0;
+  
+
+}
+#contact-details .details li i{
+   font-size: 14px;
+   padding-right: 2px;
+
+}
+#contact-details .details li p{
+    margin: 0;
+    font-size: 18px;
+    font-weight: 900;
+    color:rgb(169, 70, 103);
+
+}
+.map{
+     width: 100%;
+    height: 400px; 
+}
+.map iframe{
+ width: 100%;
+ height: 100%;
+}
+#form-details{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+    padding: 80px;
+    border: 1px solid #e1e1e1;
+}
+
+#form-details form{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#form-details form h2{
+    font-size: 37px;
+    line-height: 35px;
+    padding: 20px 0;
+}
+#form-details form input,
+#form-details form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    outline: none;
+    margin-bottom: 20px;
+    border: 1px solid #e1e1e1;
+    color: black;
+}
+#form-details form button {
+   background:#088178;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   width: 15%;
+   height: 32px;
+   border-radius: 10px;
+   color: azure;
+   
+}

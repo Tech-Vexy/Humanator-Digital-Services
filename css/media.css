@@ -1,0 +1,166 @@
+@media (max-width:770px) {
+    #openbtn{
+        right: 0;
+        top: 1px;
+    }
+    
+      .navbar nav{
+        display: none;
+    }
+    .logo{
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+    .logo h1,
+    .logo span{
+        font-size: 18px;
+    }
+    .banner-text h1{
+        font-size: 44PX;
+    }
+    .banner-btn a{
+        display: block;
+        margin: 20px auto;
+    }
+}
+
+
+/* --------Services Styles */
+@media (max-width:620px){
+
+    .testimonials{
+        flex-direction: column;
+    }
+    
+}
+
+@media (max-width:539px){
+    .center h1{
+        font-size: 35px;
+    }
+    .center p{
+        font-size: 30px;
+        
+    }
+    .branding{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .branding h1 {
+        font-size: 31px;
+        text-align: center;
+    }
+    hr{
+        width: 28%;
+    }
+    
+    .pro-container{
+        align-items: center;
+        justify-content: center;
+    }
+    .testimonial-header h1{
+        font-size: 30px;
+    }
+   
+  
+}
+
+/* newsletter button and email address */
+@media (max-width:720px){
+    .newsletter button{
+        width: 18%;
+        height: 5vh;
+       
+    }
+    .newsletter input{
+      
+        width: 50%;
+    }
+   
+  
+}
+@media (max-width:450px){
+    .newsletter button{
+        width: 22%;
+        height: 5vh;
+       
+    }
+    .newsletter input{
+      
+        width: 60%;
+    }
+   
+  
+}
+@media (max-width:314px){
+    .newsletter button{
+        width: 28%;
+        height: 5vh;
+       
+    }
+    .newsletter input{
+      
+        width: 70%;
+    }
+  
+}
+
+/* ------------footer--------------------- */
+@media (max-width:592px){
+  .row3{
+    flex-direction: column;
+  }
+  
+}
+
+
+/*-------------------About Styles-------------------------- */
+@media (max-width:700px){
+    .slogans{
+    
+      
+        display: flex;
+        flex-direction:column;
+        
+        
+    }
+    
+}
+/*-------------------Contact Styles-------------------------- */
+/* Contact Page */
+@media (max-width:830px){
+    
+    #form-details{
+       padding: 20px 20px;
+   } 
+  
+   
+}
+
+@media (max-width:700px){
+ 
+}
+
+@media (max-width:600px){
+   
+   
+   #form-details form button {
+      
+       width: 20%;
+      
+       
+    }
+}
+   
+
+@media (max-width:400px){
+   
+   #form-details form button {
+      
+       width: 40%;
+      
+       
+    }
+}

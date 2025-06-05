@@ -1,0 +1,80 @@
+
+
+
+#about-head img{
+ width: 50%;
+ height: auto;
+}
+#about-head{
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+ 
+}
+
+#about-head div{
+    padding-left: 50px;
+
+}
+#about-head div h1{
+    font-size: 50px;
+
+}
+
+@media (max-width:940px){
+    #about-head{
+        display: flex;
+        flex-direction: column;
+    }
+    .paddingspace{
+        padding: 40px 10px;
+    }
+}
+@media (max-width:656px){
+    #about-head img{
+        width: 70%;
+        height: auto;
+       }
+}
+
+.slogans{
+    
+    width: 97%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    
+    
+}
+#colum{
+    flex-basis: 28%;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px 3px #00000014;
+    cursor: pointer;
+    transition: transform .5s;
+}
+
+#motohr{
+    width: 25%;
+    margin: 10px 0;
+}
+
+#visionhr{
+    width: 25%;
+    margin: 10px 0;
+    background: greenyellow;
+}
+
+#Achievementshr{
+    width: 25%;
+    margin: 10px 0;
+    background: rgb(75, 47, 255);
+}
+
+
+
